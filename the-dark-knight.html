@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dark Knight - AIl Film</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .movie-detail-hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.4) 100%), 
+                        url('https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .movie-detail-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .movie-info-main {
+            max-width: 600px;
+        }
+
+        .movie-title {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .movie-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .movie-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .movie-meta i {
+            color: #6774ec;
+        }
+
+        .movie-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .movie-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .watch-btn {
+            background: #e50914;
+            color: #fff;
+            border: none;
+        }
+
+        .watch-btn:hover {
+            background: #f6121d;
+        }
+
+        .list-btn {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .list-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .movie-details {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .details-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .cast-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .cast-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cast-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .cast-info {
+            padding: 12px;
+        }
+
+        .cast-name {
+            font-size: 1em;
+            color: #fff;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .cast-role {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        .movie-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            color: #6774ec;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #fff;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="../index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="../kategoriler/aksiyon.html">Aksiyon</a>
+                        <a href="../kategoriler/komedi.html">Komedi</a>
+                        <a href="../kategoriler/drama.html">Drama</a>
+                        <a href="../kategoriler/bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="../kategoriler/korku.html">Korku</a>
+                        <a href="../kategoriler/romantik.html">Romantik</a>
+                        <a href="../kategoriler/belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="../filmler.html">Filmler</a></li>
+                <li><a href="../diziler.html">Diziler</a></li>
+                <li><a href="../listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="../hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="../ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="../izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="../favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Film Detay Hero Bölümü -->
+    <section class="movie-detail-hero">
+        <div class="movie-detail-content">
+            <div class="movie-info-main">
+                <h1 class="movie-title">The Dark Knight</h1>
+                <div class="movie-meta">
+                    <span><i class="fas fa-star"></i> 9.0</span>
+                    <span><i class="fas fa-clock"></i> 152 dk</span>
+                    <span><i class="fas fa-calendar"></i> 2008</span>
+                    <span><i class="fas fa-film"></i> Aksiyon</span>
+                </div>
+                <p class="movie-description">
+                    Batman, Teğmen Jim Gordon ve Bölge Savcısı Harvey Dent, Gotham şehrini suçtan arındırmak için çalışmalarını sürdürürken, Joker adında yeni bir suçlu ortaya çıkar. Joker'in yarattığı kaos ve yıkım, Batman'i en büyük psikolojik ve fiziksel sınavlarından birine sokar.
+                </p>
+                <div class="movie-actions">
+                    <button class="action-btn watch-btn">
+                        <i class="fas fa-play"></i>
+                        Şimdi İzle
+                    </button>
+                    <button class="action-btn list-btn">
+                        <i class="fas fa-plus"></i>
+                        Listeme Ekle
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Detayları -->
+    <div class="movie-details">
+        <div class="movie-stats">
+            <div class="stat-card">
+                <div class="stat-value">9.0</div>
+                <div class="stat-label">IMDb Puanı</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Oscar Ödülü</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2008</div>
+                <div class="stat-label">Yapım Yılı</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">152</div>
+                <div class="stat-label">Dakika</div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Oyuncular</h2>
+            <div class="cast-grid">
+                <div class="cast-card">
+                    <img src="https://image.tmdb.org/t/p/w500/5K0fgMaJSXYxpbqbvigtp8T2IeV.jpg" alt="Christian Bale" class="cast-image">
+                    <div class="cast-info">
+                        <div class="cast-name">Christian Bale</div>
+                        <div class="cast-role">Bruce Wayne / Batman</div>
+                    </div>
+                </div>
+                <div class="cast-card">
+                    <img src="https://image.tmdb.org/t/p/w500/oZNPzxqM2s5DyVWab09NTQScDQt.jpg" alt="Heath Ledger" class="cast-image">
+                    <div class="cast-info">
+                        <div class="cast-name">Heath Ledger</div>
+                        <div class="cast-role">Joker</div>
+                    </div>
+                </div>
+                <div class="cast-card">
+                    <img src="https://image.tmdb.org/t/p/w500/A1OYqpWqXdEwOiuQKyoKvz5H4Bx.jpg" alt="Aaron Eckhart" class="cast-image">
+                    <div class="cast-info">
+                        <div class="cast-name">Aaron Eckhart</div>
+                        <div class="cast-role">Harvey Dent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - Listem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .films-hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            margin-bottom: 40px;
+        }
+        
+        .films-header {
+            text-align: center;
+            color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .films-header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .films-header p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .films-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: rgba(103, 116, 236, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(103, 116, 236, 0.3);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #4B79E4 0%, #8453E3 100%);
+            box-shadow: 0 4px 15px rgba(75, 121, 228, 0.3);
+        }
+
+        .films-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .film-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .film-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .film-image {
+            position: relative;
+            aspect-ratio: 2/3;
+            overflow: hidden;
+        }
+
+        .film-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .film-content {
+            padding: 15px;
+        }
+
+        .film-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .film-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        .film-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .watch-btn {
+            background: #e50914;
+            color: #fff;
+        }
+
+        .info-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+        }
+
+        .list-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: #fff;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #4B79E4 0%, #8453E3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="kategoriler/aksiyon.html">Aksiyon</a>
+                        <a href="kategoriler/komedi.html">Komedi</a>
+                        <a href="kategoriler/drama.html">Drama</a>
+                        <a href="kategoriler/bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="kategoriler/korku.html">Korku</a>
+                        <a href="kategoriler/romantik.html">Romantik</a>
+                        <a href="kategoriler/belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="filmler.html">Filmler</a></li>
+                <li><a href="diziler.html">Diziler</a></li>
+                <li><a href="listem.html" class="active">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=AIL+KES&background=random" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://ui-avatars.com/api/?name=AIL+KES&background=random" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Liste Hero Bölümü -->
+        <section class="films-hero">
+            <div class="films-header">
+                <h1>Listem</h1>
+                <p>İzlemek istediğiniz ve takip ettiğiniz tüm içerikler burada!</p>
+                <div class="list-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Film</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Dizi</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">180</div>
+                        <div class="stat-label">Saat</div>
+                    </div>
+                </div>
+            </div>
+            <div class="films-filters">
+                <button class="filter-btn active">Tümü</button>
+                <button class="filter-btn">Filmler</button>
+                <button class="filter-btn">Diziler</button>
+                <button class="filter-btn">İzlenenler</button>
+                <button class="filter-btn">İzlenecekler</button>
+            </div>
+        </section>
+
+        <!-- Liste Grid -->
+        <section class="films-grid">
+            <!-- Film Kartı - Inception -->
+            <div class="film-card">
+                <div class="film-image">
+                    <img src="https://image.tmdb.org/t/p/w500/8IB2e4r4oVhHnANbnm7O3Tj6tF8.jpg" alt="Inception">
+                </div>
+                <div class="film-content">
+                    <h3 class="film-title">Inception</h3>
+                    <div class="film-info">
+                        <span>2010</span>
+                        <span>8.8 <i class="fas fa-star" style="color: #ffd700;"></i></span>
+                    </div>
+                    <div class="film-actions">
+                        <button class="action-btn watch-btn">İzle</button>
+                        <button class="action-btn info-btn"><i class="fas fa-info-circle"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dizi Kartı - Breaking Bad -->
+            <div class="film-card">
+                <div class="film-image">
+                    <img src="https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Breaking Bad">
+                </div>
+                <div class="film-content">
+                    <h3 class="film-title">Breaking Bad</h3>
+                    <div class="film-info">
+                        <span>2008-2013</span>
+                        <span>9.5 <i class="fas fa-star" style="color: #ffd700;"></i></span>
+                    </div>
+                    <div class="film-actions">
+                        <button class="action-btn watch-btn">İzle</button>
+                        <button class="action-btn info-btn"><i class="fas fa-info-circle"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Film Kartı - The Dark Knight -->
+            <div class="film-card">
+                <div class="film-image">
+                    <img src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="The Dark Knight">
+                </div>
+                <div class="film-content">
+                    <h3 class="film-title">The Dark Knight</h3>
+                    <div class="film-info">
+                        <span>2008</span>
+                        <span>9.0 <i class="fas fa-star" style="color: #ffd700;"></i></span>
+                    </div>
+                    <div class="film-actions">
+                        <button class="action-btn watch-btn">İzle</button>
+                        <button class="action-btn info-btn"><i class="fas fa-info-circle"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

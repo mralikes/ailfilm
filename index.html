@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - Online Film İzleme Platformu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo">AIl Film</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="kategoriler/aksiyon.html">Aksiyon</a>
+                        <a href="kategoriler/komedi.html">Komedi</a>
+                        <a href="kategoriler/drama.html">Drama</a>
+                        <a href="kategoriler/bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="kategoriler/korku.html">Korku</a>
+                        <a href="kategoriler/romantik.html">Romantik</a>
+                        <a href="kategoriler/belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="filmler.html">Filmler</a></li>
+                <li><a href="diziler.html">Diziler</a></li>
+                <li><a href="listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" id="searchInput" placeholder="Film veya dizi ara..." autocomplete="off">
+                    <i class="fas fa-search" id="searchButton"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Ana İçerik -->
+    <main>
+        <!-- Hero Bölümü -->
+        <section class="hero-slider">
+            <div class="hero-slide active" style="background-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.2) 100%), url('https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg');">
+                <div class="hero-content">
+                    <h1>Esaretin Bedeli</h1>
+                    <p>IMDb'nin tüm zamanların en iyi filmi. İki adamın hapishane duvarları ardındaki dostluk ve umut hikayesi.</p>
+                    <div class="rating-info">
+                        <span class="imdb"><i class="fas fa-star"></i> 9.3</span>
+                        <span class="year">1994</span>
+                        <span class="duration">142 dk</span>
+                        <span class="age">13+</span>
+                    </div>
+                    <div class="buttons">
+                        <button class="play-btn"><i class="fas fa-play"></i> Fragman</button>
+                        <button class="info-btn"><i class="fas fa-info-circle"></i> Film Detay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.2) 100%), url('https://image.tmdb.org/t/p/original/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg');">
+                <div class="hero-content">
+                    <h1>The Godfather</h1>
+                    <p>Corleone ailesinin destansı hikayesi. Suç dünyasının en güçlü mafya babasının varisi olmak kolay değil.</p>
+                    <div class="rating-info">
+                        <span class="imdb"><i class="fas fa-star"></i> 9.2</span>
+                        <span class="year">1972</span>
+                        <span class="duration">175 dk</span>
+                        <span class="age">18+</span>
+                    </div>
+                    <div class="buttons">
+                        <button class="play-btn"><i class="fas fa-play"></i> Fragman</button>
+                        <button class="info-btn"><i class="fas fa-info-circle"></i> Film Detay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.2) 100%), url('https://image.tmdb.org/t/p/original/kGzFbGhp99zva6oZODW5atUtnqi.jpg');">
+                <div class="hero-content">
+                    <h1>Kara Şövalye</h1>
+                    <p>Gotham'ın karanlık şövalyesi, şehri Joker'in kaosundan korumak için kendi prensiplerini sorgulamak zorunda kalacak.</p>
+                    <div class="rating-info">
+                        <span class="imdb"><i class="fas fa-star"></i> 9.0</span>
+                        <span class="year">2008</span>
+                        <span class="duration">152 dk</span>
+                        <span class="age">12+</span>
+                    </div>
+                    <div class="buttons">
+                        <button class="play-btn"><i class="fas fa-play"></i> Fragman</button>
+                        <button class="info-btn"><i class="fas fa-info-circle"></i> Film Detay</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Kontrolleri -->
+            <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+
+            <!-- Slider Noktaları -->
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- IMDb Top 10 -->
+        <section class="movie-row">
+            <h2>IMDb Top 10</h2>
+            <div class="movie-slider">
+                <div class="movie-card">
+                    <div class="rank">1</div>
+                    <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" alt="Esaretin Bedeli">
+                    <div class="movie-info">
+                        <h3>Esaretin Bedeli</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>9.3</span>
+                            </div>
+                            <span class="year">1994</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Dram • Suç</p>
+                            <p class="duration">142 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="rank">2</div>
+                    <img src="https://image.tmdb.org/t/p/w500/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg" alt="Baba">
+                    <div class="movie-info">
+                        <h3>Baba</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>9.2</span>
+                            </div>
+                            <span class="year">1972</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Suç • Dram</p>
+                            <p class="duration">175 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="rank">3</div>
+                    <img src="https://image.tmdb.org/t/p/w500/kGzFbGhp99zva6oZODW5atUtnqi.jpg" alt="Kara Şövalye">
+                    <div class="movie-info">
+                        <h3>Kara Şövalye</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>9.0</span>
+                            </div>
+                            <span class="year">2008</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Aksiyon • Suç • Dram</p>
+                            <p class="duration">152 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="rank">4</div>
+                    <img src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="Baba 2">
+                    <div class="movie-info">
+                        <h3>Baba 2</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>9.0</span>
+                            </div>
+                            <span class="year">1974</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Suç • Dram</p>
+                            <p class="duration">202 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="rank">5</div>
+                    <img src="https://image.tmdb.org/t/p/w500/3WZTxpgscsmoUk81TuECXdFOD0R.jpg" alt="12 Öfkeli Adam">
+                    <div class="movie-info">
+                        <h3>12 Öfkeli Adam</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.9</span>
+                            </div>
+                            <span class="year">1957</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Dram • Suç</p>
+                            <p class="duration">96 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="rank">6</div>
+                    <img src="https://image.tmdb.org/t/p/w500/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg" alt="Schindler'in Listesi">
+                    <div class="movie-info">
+                        <h3>Schindler'in Listesi</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.9</span>
+                            </div>
+                            <span class="year">1993</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Dram • Tarih • Savaş</p>
+                            <p class="duration">195 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="rank">7</div>
+                    <img src="https://image.tmdb.org/t/p/w500/mWuFbQrXyLk2kMBKF9TUPtDwuPx.jpg" alt="Yüzüklerin Efendisi: Kralın Dönüşü">
+                    <div class="movie-info">
+                        <h3>Yüzüklerin Efendisi: Kralın Dönüşü</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.9</span>
+                            </div>
+                            <span class="year">2003</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Fantastik • Macera</p>
+                            <p class="duration">201 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="rank">8</div>
+                    <img src="https://image.tmdb.org/t/p/w500/eWivEg4ugIMAd7d4uWI37b17Cgj.jpg" alt="İyi, Kötü ve Çirkin">
+                    <div class="movie-info">
+                        <h3>İyi, Kötü ve Çirkin</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.8</span>
+                            </div>
+                            <span class="year">1966</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Western • Macera</p>
+                            <p class="duration">178 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Film: Matrix -->
+                <div class="movie-card">
+                    <div class="rank">9</div>
+                    <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" alt="Matrix">
+                    <div class="movie-info">
+                        <h3>Matrix</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.7</span>
+                            </div>
+                            <span class="year">1999</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Bilim Kurgu • Aksiyon</p>
+                            <p class="duration">136 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Film: Inception -->
+                <div class="movie-card">
+                    <div class="rank">10</div>
+                    <img src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" alt="Inception">
+                    <div class="movie-info">
+                        <h3>Başlangıç</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.7</span>
+                            </div>
+                            <span class="year">2010</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Bilim Kurgu • Aksiyon • Gerilim</p>
+                            <p class="duration">148 dk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yeni Eklenenler -->
+        <section class="movie-row">
+            <h2>Yeni Eklenenler</h2>
+            <div class="movie-slider">
+                <div class="movie-card">
+                    <div class="new-badge">Yeni</div>
+                    <img src="https://image.tmdb.org/t/p/w500/8xV47NDrjdZDpkVcCFqkdHa3T0C.jpg" alt="Dune: Çöl Gezegeni Bölüm 2">
+                    <div class="movie-info">
+                        <h3>Dune: Çöl Gezegeni 2</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.8</span>
+                            </div>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Bilim Kurgu • Macera</p>
+                            <p class="duration">166 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="new-badge">Yeni</div>
+                    <img src="https://image.tmdb.org/t/p/w500/mDeUmPe4MF35WWlAqj4QFX5UauJ.jpg" alt="Argylle">
+                    <div class="movie-info">
+                        <h3>Argylle</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>6.2</span>
+                            </div>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Aksiyon • Macera</p>
+                            <p class="duration">139 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="new-badge">Yeni</div>
+                    <img src="https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg" alt="Madame Web">
+                    <div class="movie-info">
+                        <h3>Madame Web</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.3</span>
+                            </div>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Aksiyon • Bilim Kurgu</p>
+                            <p class="duration">116 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="new-badge">Yeni</div>
+                    <img src="https://image.tmdb.org/t/p/w500/7lTnXOy0iNtBAdRP3TZvaKJ77F6.jpg" alt="Aquaman and the Lost Kingdom">
+                    <div class="movie-info">
+                        <h3>Aquaman ve Kayıp Krallık</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>6.8</span>
+                            </div>
+                            <span class="year">2023</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Aksiyon • Macera • Fantastik</p>
+                            <p class="duration">124 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="new-badge">Yeni</div>
+                    <img src="https://image.tmdb.org/t/p/w500/4woSOUD0equAYzvwhWBHIJDCM88.jpg" alt="Ariana Grande: Eternal Sunshine">
+                    <div class="movie-info">
+                        <h3>Ariana Grande: Eternal Sunshine</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.5</span>
+                            </div>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Müzik</p>
+                            <p class="duration">45 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="new-badge">Yeni</div>
+                    <img src="https://image.tmdb.org/t/p/w500/h0oBqUpax591vOacpBsDJ8cynjk.jpg" alt="Civil War">
+                    <div class="movie-info">
+                        <h3>Civil War</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>7.8</span>
+                            </div>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Aksiyon • Drama</p>
+                            <p class="duration">109 dk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Oscar Ödüllü Filmler -->
+        <section class="movie-row">
+            <h2>Oscar Ödüllü Filmler</h2>
+            <div class="movie-slider">
+                <div class="movie-card">
+                    <div class="award-badge"><i class="fas fa-award"></i></div>
+                    <img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Oppenheimer">
+                    <div class="movie-info">
+                        <h3>Oppenheimer</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.9</span>
+                            </div>
+                            <span class="year">2023</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Dram • Tarih • Biyografi</p>
+                            <p class="duration">180 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="award-badge"><i class="fas fa-award"></i></div>
+                    <img src="https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Barbie">
+                    <div class="movie-info">
+                        <h3>Barbie</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>7.2</span>
+                            </div>
+                            <span class="year">2023</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Komedi • Macera • Fantastik</p>
+                            <p class="duration">114 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="award-badge"><i class="fas fa-award"></i></div>
+                    <img src="https://image.tmdb.org/t/p/w500/nTPFkLUARmo1bYHfkfdNpRKgEOs.jpg" alt="Poor Things">
+                    <div class="movie-info">
+                        <h3>Poor Things</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.4</span>
+                            </div>
+                            <span class="year">2023</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Bilim Kurgu • Romantik • Komedi</p>
+                            <p class="duration">141 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="award-badge"><i class="fas fa-award"></i></div>
+                    <img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Super Mario Bros. Movie">
+                    <div class="movie-info">
+                        <h3>Super Mario Bros.</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>7.1</span>
+                            </div>
+                            <span class="year">2023</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Animasyon • Macera • Komedi</p>
+                            <p class="duration">92 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="award-badge"><i class="fas fa-award"></i></div>
+                    <img src="https://image.tmdb.org/t/p/w500/628Dep6AxEtDxjZoGP78TsOxYbK.jpg" alt="Parasite">
+                    <div class="movie-info">
+                        <h3>Parazit</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>8.5</span>
+                            </div>
+                            <span class="year">2019</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Drama • Komedi • Gerilim</p>
+                            <p class="duration">132 dk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="award-badge"><i class="fas fa-award"></i></div>
+                    <img src="https://image.tmdb.org/t/p/w500/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg" alt="Everything Everywhere All at Once">
+                    <div class="movie-info">
+                        <h3>Her Şey Her Yerde Aynı Anda</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>7.8</span>
+                            </div>
+                            <span class="year">2022</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Aksiyon • Macera • Bilim Kurgu</p>
+                            <p class="duration">139 dk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AIl Film</h4>
+                <p>En iyi film ve dizileri keşfedin</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/mralikesz" target="_blank" rel="noopener noreferrer" title="Instagram'da takip et"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/mralikesz" target="_blank" rel="noopener noreferrer" title="X'de takip et"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" title="LinkedIn'de bağlantı kur"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/mralikes" target="_blank" rel="noopener noreferrer" title="GitHub'da takip et"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">İletişim</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Kullanım Şartları</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>İletişim</h4>
+                <p><i class="fas fa-envelope"></i> mralikesz@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +90 555 123 4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tüm hakları saklıdır - Software Engineer ALİ KEŞ</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

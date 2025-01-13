@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - Hesabım</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .profile-hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(121, 40, 202, 0.8), rgba(79, 70, 229, 0.8));
+            margin-bottom: 40px;
+        }
+
+        .profile-hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: #fff;
+        }
+
+        .profile-avatar {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-info-large {
+            text-align: left;
+        }
+
+        .profile-info-large h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .profile-email {
+            font-size: 1em;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .stat i {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .profile-sections {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .profile-section {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .section-header i {
+            font-size: 1.2em;
+            color: #6774ec;
+        }
+
+        .section-header h2 {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info h3 {
+            font-size: 1em;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .setting-info p {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        .edit-btn, .view-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .edit-btn {
+            background: rgba(103, 116, 236, 0.1);
+            color: #6774ec;
+        }
+
+        .edit-btn:hover {
+            background: rgba(103, 116, 236, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .view-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .view-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #6774ec;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        .notification-item, .security-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .notification-item:last-child, .security-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-info h3, .security-info h3 {
+            font-size: 1em;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .notification-info p, .security-info p {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="kategoriler/aksiyon.html">Aksiyon</a>
+                        <a href="kategoriler/komedi.html">Komedi</a>
+                        <a href="kategoriler/drama.html">Drama</a>
+                        <a href="kategoriler/bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="kategoriler/korku.html">Korku</a>
+                        <a href="kategoriler/romantik.html">Romantik</a>
+                        <a href="kategoriler/belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="filmler.html">Filmler</a></li>
+                <li><a href="diziler.html">Diziler</a></li>
+                <li><a href="listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="hesabim.html" class="active"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Profil Hero Bölümü -->
+        <section class="profile-hero">
+            <div class="profile-hero-content">
+                <div class="profile-avatar">
+                    <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                </div>
+                <div class="profile-info-large">
+                    <h1>AIL KES</h1>
+                    <div class="profile-email">ailkes@email.com</div>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <i class="fas fa-film"></i>
+                            <span>24 Film</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-tv"></i>
+                            <span>12 Dizi</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-heart"></i>
+                            <span>8 Favori</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil İçerik Bölümü -->
+        <section class="profile-content">
+            <div class="profile-sections">
+                <div class="profile-section">
+                    <div class="section-header">
+                        <i class="fas fa-cog"></i>
+                        <h2>Hesap Ayarları</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Profil Bilgileri</h3>
+                                <p>Ad, e-posta ve şifre ayarlarınızı güncelleyin</p>
+                            </div>
+                            <button class="edit-btn"><i class="fas fa-pen"></i> Düzenle</button>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Üyelik Planı</h3>
+                                <p>Premium üyelik - Aylık plan</p>
+                            </div>
+                            <button class="edit-btn"><i class="fas fa-crown"></i> Yükselt</button>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h3>Ödeme Bilgileri</h3>
+                                <p>Kredi kartı ve fatura bilgilerinizi yönetin</p>
+                            </div>
+                            <button class="edit-btn"><i class="fas fa-credit-card"></i> Düzenle</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="section-header">
+                        <i class="fas fa-bell"></i>
+                        <h2>Bildirim Tercihleri</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>Yeni İçerik Bildirimleri</h3>
+                                <p>Yeni film ve diziler eklendiğinde bildirim al</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h3>Özel Teklifler</h3>
+                                <p>İndirim ve kampanyalardan haberdar ol</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section">
+                    <div class="section-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h2>Güvenlik</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h3>İki Faktörlü Doğrulama</h3>
+                                <p>Hesabınızı daha güvenli hale getirin</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h3>Oturum Geçmişi</h3>
+                                <p>Aktif cihazlarınızı görüntüleyin</p>
+                            </div>
+                            <button class="view-btn"><i class="fas fa-external-link-alt"></i> Görüntüle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

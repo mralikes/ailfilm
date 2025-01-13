@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - İzleme Listem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .watchlist-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .watchlist-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .watchlist-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            background: #1a1a1a;
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stat i {
+            color: #6774ec;
+            font-size: 1.2em;
+        }
+
+        .stat-info {
+            text-align: left;
+        }
+
+        .stat-value {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #6774ec;
+            color: #6774ec;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: rgba(103, 116, 236, 0.1);
+        }
+
+        .filter-btn.active {
+            background: #6774ec;
+            color: #fff;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .movie-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .movie-poster {
+            position: relative;
+            width: 100%;
+            padding-top: 150%; /* 2:3 oranı */
+        }
+
+        .movie-poster img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 12px;
+        }
+
+        .movie-title {
+            color: #fff;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+
+        .movie-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .movie-year {
+            color: #aaa;
+            font-size: 0.8em;
+        }
+
+        .movie-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .movie-rating i {
+            color: #ffd700;
+            font-size: 0.75em;
+        }
+
+        .movie-rating span {
+            color: #ffd700;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .movie-actions {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 6px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.8em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .watch-btn {
+            background: rgba(103, 116, 236, 0.1);
+            color: #6774ec;
+        }
+
+        .watch-btn:hover {
+            background: rgba(103, 116, 236, 0.2);
+        }
+
+        .remove-btn {
+            background: rgba(255, 59, 48, 0.1);
+            color: #ff3b30;
+        }
+
+        .remove-btn:hover {
+            background: rgba(255, 59, 48, 0.2);
+        }
+
+        .action-btn i {
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="kategoriler/aksiyon.html">Aksiyon</a>
+                        <a href="kategoriler/komedi.html">Komedi</a>
+                        <a href="kategoriler/drama.html">Drama</a>
+                        <a href="kategoriler/bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="kategoriler/korku.html">Korku</a>
+                        <a href="kategoriler/romantik.html">Romantik</a>
+                        <a href="kategoriler/belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="filmler.html">Filmler</a></li>
+                <li><a href="diziler.html">Diziler</a></li>
+                <li><a href="listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="izleme-listem.html" class="active"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="watchlist-container">
+        <h1 class="watchlist-title">İzleme Listem</h1>
+        
+        <div class="watchlist-stats">
+            <div class="stat">
+                <i class="fas fa-list"></i>
+                <div class="stat-info">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Listede</div>
+                </div>
+            </div>
+            <div class="stat">
+                <i class="fas fa-film"></i>
+                <div class="stat-info">
+                    <div class="stat-value">8 Film</div>
+                    <div class="stat-label">4 Dizi</div>
+                </div>
+            </div>
+            <div class="stat">
+                <i class="fas fa-clock"></i>
+                <div class="stat-info">
+                    <div class="stat-value">24 Saat</div>
+                    <div class="stat-label">Toplam Süre</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active">Tümü</button>
+            <button class="filter-btn">Filmler</button>
+            <button class="filter-btn">Diziler</button>
+            <button class="filter-btn">En Yüksek Puan</button>
+            <button class="filter-btn">Son Eklenenler</button>
+        </div>
+
+        <div class="movie-grid">
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" alt="Esaretin Bedeli">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Esaretin Bedeli</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">1994</span>
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            <span>9.3</span>
+                        </div>
+                    </div>
+                    <div class="movie-actions">
+                        <button class="action-btn watch-btn">
+                            <i class="fas fa-play"></i>
+                            İzle
+                        </button>
+                        <button class="action-btn remove-btn">
+                            <i class="fas fa-times"></i>
+                            Kaldır
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg" alt="Inception">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Inception</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2010</span>
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            <span>8.8</span>
+                        </div>
+                    </div>
+                    <div class="movie-actions">
+                        <button class="action-btn watch-btn">
+                            <i class="fas fa-play"></i>
+                            İzle
+                        </button>
+                        <button class="action-btn remove-btn">
+                            <i class="fas fa-times"></i>
+                            Kaldır
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://image.tmdb.org/t/p/w500/vug1dvDI1tSa60Z8qjCuUE7ntkO.jpg" alt="Interstellar">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Interstellar</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2014</span>
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            <span>8.6</span>
+                        </div>
+                    </div>
+                    <div class="movie-actions">
+                        <button class="action-btn watch-btn">
+                            <i class="fas fa-play"></i>
+                            İzle
+                        </button>
+                        <button class="action-btn remove-btn">
+                            <i class="fas fa-times"></i>
+                            Kaldır
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

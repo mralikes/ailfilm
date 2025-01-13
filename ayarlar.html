@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - Ayarlar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .settings-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .settings-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .settings-title {
+            font-size: 2em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .settings-subtitle {
+            color: #aaa;
+            font-size: 1em;
+        }
+
+        .settings-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .settings-card h2 {
+            font-size: 1.2em;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .settings-card h2 i {
+            color: #6774ec;
+        }
+
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .settings-item-label {
+            color: #fff;
+            font-size: 0.95em;
+        }
+
+        .settings-item-value {
+            color: #aaa;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .settings-btn {
+            background: transparent;
+            border: 1px solid #6774ec;
+            color: #6774ec;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .settings-btn:hover {
+            background: rgba(103, 116, 236, 0.1);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: .3s;
+            border-radius: 22px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #6774ec;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(18px);
+        }
+
+        select {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 6px 25px 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 12px;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #6774ec;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="kategoriler/aksiyon.html">Aksiyon</a>
+                        <a href="kategoriler/komedi.html">Komedi</a>
+                        <a href="kategoriler/drama.html">Drama</a>
+                        <a href="kategoriler/bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="kategoriler/korku.html">Korku</a>
+                        <a href="kategoriler/romantik.html">Romantik</a>
+                        <a href="kategoriler/belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="filmler.html">Filmler</a></li>
+                <li><a href="diziler.html">Diziler</a></li>
+                <li><a href="listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="ayarlar.html" class="active"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="settings-container">
+        <div class="settings-header">
+            <h1 class="settings-title">Ayarlar</h1>
+            <p class="settings-subtitle">Profil bilgilerinizi ve tercihlerinizi buradan yönetebilirsiniz.</p>
+        </div>
+        
+        <div class="settings-card">
+            <h2><i class="fas fa-user"></i> Hesap</h2>
+            <div class="settings-item">
+                <span class="settings-item-label">E-posta</span>
+                <div class="settings-item-value">
+                    kullanici@email.com
+                    <button class="settings-btn">Değiştir</button>
+                </div>
+            </div>
+            <div class="settings-item">
+                <span class="settings-item-label">Şifre</span>
+                <div class="settings-item-value">
+                    ••••••••
+                    <button class="settings-btn">Değiştir</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-card">
+            <h2><i class="fas fa-bell"></i> Bildirimler</h2>
+            <div class="settings-item">
+                <span class="settings-item-label">E-posta bildirimleri</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="settings-item">
+                <span class="settings-item-label">Yeni içerik bildirimleri</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-card">
+            <h2><i class="fas fa-globe"></i> Tercihler</h2>
+            <div class="settings-item">
+                <span class="settings-item-label">Dil</span>
+                <select>
+                    <option value="tr">Türkçe</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <div class="settings-item">
+                <span class="settings-item-label">Otomatik oynatma</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

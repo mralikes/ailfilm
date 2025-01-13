@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - Aksiyon Filmleri</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="../index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="aksiyon.html" class="active">Aksiyon</a>
+                        <a href="komedi.html">Komedi</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="korku.html">Korku</a>
+                        <a href="romantik.html">Romantik</a>
+                        <a href="belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="../filmler.html">Filmler</a></li>
+                <li><a href="../diziler.html">Diziler</a></li>
+                <li><a href="../listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="../hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="../ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="../izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="../favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Kategori Hero Bölümü -->
+        <section class="category-hero" style="background-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.2) 100%), url('https://image.tmdb.org/t/p/original/kGzFbGhp99zva6oZODW5atUtnqi.jpg');">
+            <div class="category-hero-content">
+                <h1>Aksiyon Filmleri</h1>
+                <p>Heyecan dolu sahneler, nefes kesen takipler ve unutulmaz dövüş sekanslarıyla dolu aksiyon filmleri dünyasına hoş geldiniz. En iyi aksiyon filmlerini keşfedin ve adrenalini hissedin!</p>
+                <div class="category-stats">
+                    <div class="stat">
+                        <i class="fas fa-film"></i>
+                        <span>250+ Film</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Ortalama IMDb: 7.5</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Toplam: 500+ Saat</span>
+                    </div>
+                </div>
+                <div class="category-features">
+                    <div class="feature">
+                        <i class="fas fa-fist-raised"></i>
+                        <span>Dövüş Sahneleri</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-car"></i>
+                        <span>Araba Takipleri</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bomb"></i>
+                        <span>Patlama Efektleri</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-mask"></i>
+                        <span>Süper Kahramanlar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filmler Bölümü -->
+        <section class="category-content">
+            <div class="category-filters">
+                <button class="active">Tümü</button>
+                <button>En Yeniler</button>
+                <button>En Popüler</button>
+                <button>IMDb Top</button>
+                <button>Süper Kahraman</button>
+                <button>Savaş</button>
+                <button>Dövüş</button>
+                <button>Macera</button>
+            </div>
+
+            <div class="movies-grid">
+                <!-- Film Kartları -->
+                <div class="movie-card">
+                    <img src="https://image.tmdb.org/t/p/w500/kGzFbGhp99zva6oZODW5atUtnqi.jpg" alt="Kara Şövalye">
+                    <div class="movie-info">
+                        <h3>Kara Şövalye</h3>
+                        <div class="movie-details">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>9.0</span>
+                            </div>
+                            <span class="year">2008</span>
+                        </div>
+                    </div>
+                    <div class="hover-info">
+                        <div class="hover-buttons">
+                            <button class="play"><i class="fas fa-play"></i></button>
+                            <button class="add"><i class="fas fa-plus"></i></button>
+                            <button class="like"><i class="fas fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="hover-details">
+                            <p class="genre">Aksiyon • Suç • Dram</p>
+                            <p class="duration">152 dk</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Diğer film kartları buraya eklenecek -->
+            </div>
+        </section>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html> 

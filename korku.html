@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - Korku Filmleri</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="../index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="aksiyon.html">Aksiyon</a>
+                        <a href="komedi.html">Komedi</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="korku.html" class="active">Korku</a>
+                        <a href="romantik.html">Romantik</a>
+                        <a href="belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="../filmler.html">Filmler</a></li>
+                <li><a href="../diziler.html">Diziler</a></li>
+                <li><a href="../listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="../hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="../ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="../izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="../favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Kategori Hero Bölümü -->
+        <section class="category-hero" style="background-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.2) 100%), url('https://image.tmdb.org/t/p/original/7PurMm0gUOJZ8Uk0oyuZlt1CKfJ.jpg');">
+            <div class="category-hero-content">
+                <h1>Korku Filmleri</h1>
+                <p>Gerilim dolu anlar, beklenmedik sürprizler ve korkutucu atmosferiyle sizi ekrana kilitleyecek en iyi korku filmlerini keşfedin. Cesaretinizi test etmeye hazır mısınız?</p>
+                <div class="category-stats">
+                    <div class="stat">
+                        <i class="fas fa-film"></i>
+                        <span>150+ Film</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Ortalama IMDb: 7.4</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-ghost"></i>
+                        <span>Kült Klasikler</span>
+                    </div>
+                </div>
+                <div class="category-features">
+                    <div class="feature">
+                        <i class="fas fa-ghost"></i>
+                        <span>Paranormal</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-skull"></i>
+                        <span>Slasher</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-house-damage"></i>
+                        <span>Hayalet Ev</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-biohazard"></i>
+                        <span>Zombi</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filmler Bölümü -->
+        <section class="category-content">
+            <div class="category-filters">
+                <button class="active">Tümü</button>
+                <button>En Yeniler</button>
+                <button>En Popüler</button>
+                <button>Paranormal</button>
+                <button>Slasher</button>
+                <button>Psikolojik</button>
+                <button>Zombi</button>
+                <button>Doğaüstü</button>
+            </div>
+
+            <div class="movies-grid">
+                <!-- Film Kartı - The Conjuring -->
+                <div class="movie-card">
+                    <div class="card-image">
+                        <img src="https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg" alt="The Conjuring">
+                        <div class="card-badges">
+                            <span class="rating-badge">7.5</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>The Conjuring</h3>
+                        <div class="card-details">
+                            <span class="genre">Korku</span>
+                            <span class="year">2013</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="play-btn"><i class="fas fa-play"></i> İzle</button>
+                            <button class="info-btn"><i class="fas fa-info-circle"></i></button>
+                            <button class="like-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html> 

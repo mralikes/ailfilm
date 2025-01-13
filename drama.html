@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIl Film - Drama Filmleri</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Bölümü -->
+    <header>
+        <nav>
+            <div class="logo"><a href="../index.html">AIl Film</a></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active">Kategoriler <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="aksiyon.html">Aksiyon</a>
+                        <a href="komedi.html">Komedi</a>
+                        <a href="drama.html" class="active">Drama</a>
+                        <a href="bilimkurgu.html">Bilim Kurgu</a>
+                        <a href="korku.html">Korku</a>
+                        <a href="romantik.html">Romantik</a>
+                        <a href="belgesel.html">Belgesel</a>
+                    </div>
+                </li>
+                <li><a href="../filmler.html">Filmler</a></li>
+                <li><a href="../diziler.html">Diziler</a></li>
+                <li><a href="../listem.html">Listem</a></li>
+            </ul>
+            <div class="search-profile">
+                <div class="search">
+                    <input type="text" placeholder="Film veya dizi ara...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="profile dropdown">
+                    <div class="avatar-wrapper">
+                        <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil" class="dropdown-toggle">
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="dropdown-menu profile-menu">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <img src="https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1920.medium.jpg/1708512778895.jpg" alt="Profil">
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-info">
+                                <span class="name">AIL KES</span>
+                                <span class="email">ailkes@email.com</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="../hesabim.html"><i class="fas fa-user"></i> Hesabım</a>
+                            <a href="../ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                            <a href="../izleme-listem.html"><i class="fas fa-list"></i> İzleme Listem</a>
+                            <a href="../favorilerim.html"><i class="fas fa-heart"></i> Favorilerim</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Kategori Hero Bölümü -->
+        <section class="category-hero" style="background-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.2) 100%), url('https://image.tmdb.org/t/p/original/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg');">
+            <div class="category-hero-content">
+                <h1>Drama Filmleri</h1>
+                <p>İnsan doğasının derinliklerine inen, duygusal yoğunluğu yüksek ve etkileyici hikayelerle dolu drama filmleri dünyasına hoş geldiniz. En iyi drama filmlerini keşfedin ve unutulmaz hikayelere tanık olun!</p>
+                <div class="category-stats">
+                    <div class="stat">
+                        <i class="fas fa-film"></i>
+                        <span>300+ Film</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Ortalama IMDb: 8.1</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-trophy"></i>
+                        <span>100+ Oscar Ödüllü</span>
+                    </div>
+                </div>
+                <div class="category-features">
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <span>Duygusal</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Aile Draması</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gavel"></i>
+                        <span>Adalet</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-history"></i>
+                        <span>Tarihi Drama</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filmler Bölümü -->
+        <section class="category-content">
+            <div class="category-filters">
+                <button class="active">Tümü</button>
+                <button>En Yeniler</button>
+                <button>En Popüler</button>
+                <button>Oscar Ödüllü</button>
+                <button>Biyografik</button>
+                <button>Tarihi</button>
+                <button>Sosyal</button>
+                <button>Psikolojik</button>
+            </div>
+
+            <div class="movies-grid">
+                <!-- Film Kartı - Esaretin Bedeli -->
+                <div class="movie-card">
+                    <div class="card-image">
+                        <img src="https://image.tmdb.org/t/p/w500/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg" alt="Esaretin Bedeli">
+                        <div class="card-badges">
+                            <span class="oscar-badge"><i class="fas fa-trophy"></i></span>
+                            <span class="rating-badge">9.3</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Esaretin Bedeli</h3>
+                        <div class="card-details">
+                            <span class="genre">Drama</span>
+                            <span class="year">1994</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="play-btn"><i class="fas fa-play"></i> İzle</button>
+                            <button class="info-btn"><i class="fas fa-info-circle"></i></button>
+                            <button class="like-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html> 
